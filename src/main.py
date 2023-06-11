@@ -246,6 +246,7 @@ def main():
                 feature_cols=feat_names_list,
                 target_col=target_name,
                 nominal_cols=nominal_feat_names,
+                task=option,
             )
             st.session_state.run_model = True
 
