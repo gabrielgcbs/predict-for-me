@@ -227,7 +227,7 @@ def main():
     )
 
     # Separate data in train and test only if steps 1 and 2 are done
-    if all(steps[:-1]):
+    if all(steps):
         X_train, y_train = get_X_y_data(df_train, feature_cols=feat_names_list, target_col=target_name)
         X_to_predict = get_X_y_data(df_test, feature_cols=feat_names_list)
 
@@ -235,7 +235,7 @@ def main():
     clicked_on_run = st.button(f"Run {option.lower()} model")
     
     if clicked_on_run:
-        if not all(steps[:-1]):
+        if not all(steps):
             with st.empty():
                 show_error(steps)
         else:
