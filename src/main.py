@@ -163,7 +163,7 @@ def main():
 
     st.write(
         """
-            # :robot_face: PredictMe
+            # :robot_face: Predict4Me
             > A web Artificial Intelligence model for everyone - just upload your dataset and let it predict for you
         """
     )
