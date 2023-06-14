@@ -14,15 +14,7 @@ from sklearn.metrics import classification_report, accuracy_score, f1_score, mea
 
 # Constants
 FILENAME = "prediction_results.csv"
-
-# Functions
-def disable_option_selection() -> None:
-    if not st.session_state.run_model:
-        st.session_state.run_model = True
-    if st.session_state.run_model:
-    # if True, sets to False, and vice-versa
-        st.session_state.radio_disabled = True
-        
+      
 def load_data(file: pd.DataFrame) -> pd.DataFrame:
     df = pd.read_csv(file)
     st.dataframe(df.head(), hide_index=True)
@@ -127,8 +119,7 @@ def run_pipeline(
     task: str='classification'
 ) -> str:
     
-    # disable_option_selection()
-    if task == 'classification':
+    if task.lower() == 'classification':
         y_pred, report = run_classifier(X, y, X_to_predict, nominal_cols)
     else:
         y_pred, report = run_regressor(X, y, X_to_predict, nominal_cols)
